@@ -13,6 +13,11 @@
         "default_icon": "favicon_io/android-chrome-512x512.png",
         "default_popup": "info.html"
     },
+    "permissions": [
+        "tabs",
+        "http://*/",
+        "https://*/"
+     ],
     "content_scripts": [
         {
             "matches": [

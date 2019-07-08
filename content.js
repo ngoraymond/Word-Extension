@@ -25,8 +25,8 @@ function swap (node) {
     .replace(/alt right|altright|alt-right|Neo-Nazi|neo|Nazi/g,'good people')
     .replace(/North Korea|Russia/g,'Good Country')
     .replace(/big/g,'bigly')
-    .replace(/coffee/g,'covfefe')
-    .replace(/Coffee/g,'Covfefe')
+    .replace(/coffee|coverage/g,'covfefe')
+    .replace(/Coffee|coverage/g,'Covfefe')
     .replace(/Obama/g,'"Weak on Immigration" Obama')
     .replace(/undocumented/g,'illegal')
     .replace(/Undocumented/g,'Illegal')
@@ -41,5 +41,6 @@ window.onload = trumpify();
 document.addEventListener('DOMContentLoaded', function() {document.getElementById('toggler').addEventListener('click', toggle());});
 function toggle()
 {
-    trumpOn = !trumpOn;
+    trumpOn = false;
 }
+document.getElementById("status").innerHTML = trumpOn;
