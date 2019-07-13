@@ -32,8 +32,6 @@ function swap (node) {
     .replace(/Big/g,'Bigly'); 
     /*
     .replace(/[a-zA-Z]+\./g,', believe me.')
-    .replace(/Nazi |Nazism|Nazis|National Socialism|National Socialist/g,'anti Antifa ')
-    .replace(/Nazi Germany/g,'Good Country')
     */
 }
 window.onload = chrome.storage.sync.get('state',function(data){if (data.state !== 'off'){trumpify();}});
