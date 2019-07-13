@@ -1,5 +1,4 @@
 var elements = document.getElementsByTagName('*');
-var trumpOn = true;
 function trumpify() {
     for (var i = 0; i < elements.length; i++) {
         var element = elements[i];
@@ -7,7 +6,7 @@ function trumpify() {
         for (var j = 0; j < element.childNodes.length; j++) {
             var node = element.childNodes[j];
 
-            if (trumpOn == true && node.nodeType === 3) {
+            if (node.nodeType === 3) {
                 swap(node);
                 /*
                 var text = node.nodeValue;
@@ -37,10 +36,20 @@ function swap (node) {
     .replace(/Nazi Germany/g,'Good Country')
     */
 }
-window.onload = trumpify();
+window.onload = chrome.storage.sync.get('state',function(data){if (data.state !== 'off'){trumpify();}});
 document.addEventListener('DOMContentLoaded', function() {document.getElementById('toggler').addEventListener('click', toggle());});
 function toggle()
 {
-    trumpOn = false;
+    chrome.storage.sync.get('state', function(data) {
+        if (data.state === 'on') {
+          chrome.storage.sync.set({state: 'off', });
+          //do something, removing the script or whatever
+          chrome.tabs.reload();
+        } else {
+          chrome.storage.sync.set({state: 'on'});
+          //inject your script
+          chrome.tabs.reload();
+        }
+      });
 }
-document.getElementById("status").innerHTML = trumpOn;
+//document.getElementById("status").innerHTML = trumpOn;
