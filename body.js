@@ -1,0 +1,1 @@
+ReactDOM.render(chrome.storage.sync.get('state',function(data){return(<div>{data.state}</div>);}),document.getElementById("status"));

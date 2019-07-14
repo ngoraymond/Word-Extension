@@ -29,6 +29,7 @@ function swap (node) {
     .replace(/Obama/g,'"Weak on Immigration" Obama')
     .replace(/undocumented/g,'illegal')
     .replace(/Undocumented/g,'Illegal')
+    .replace(/Hillary Clinton|Hillary/g,'Crooked Hillary')
     .replace(/Big/g,'Bigly'); 
     /*
     .replace(/[a-zA-Z]+\./g,', believe me.')
@@ -40,14 +41,16 @@ function toggle()
 {
     chrome.storage.sync.get('state', function(data) {
         if (data.state === 'on') {
-          chrome.storage.sync.set({state: 'off', });
+          chrome.storage.sync.set({state: 'off'});
+          document.getElementById("status").innerHTML = data.state;
           //do something, removing the script or whatever
           chrome.tabs.reload();
         } else {
           chrome.storage.sync.set({state: 'on'});
+          document.getElementById("status").innerHTML = data.state;
           //inject your script
           chrome.tabs.reload();
         }
       });
 }
-//document.getElementById("status").innerHTML = trumpOn;
+
