@@ -35,21 +35,22 @@ function swap (node) {
     .replace(/[a-zA-Z]+\./g,', believe me.')
     */
 }
-window.onload = chrome.storage.sync.get('state',function(data){if (data.state !== 'off'){trumpify();}});
+window.onload = chrome.storage.sync.get('state',function(data){if (data.state !== 'Off'){trumpify();}});
 document.addEventListener('DOMContentLoaded', function() {document.getElementById('toggler').addEventListener('click', toggle());});
+document.getElementById("toggler").addEventListener("click", toggle());
 function toggle()
 {
     chrome.storage.sync.get('state', function(data) {
-        if (data.state === 'on') {
-          chrome.storage.sync.set({state: 'off'});
-          document.getElementById("status").innerHTML = data.state;
+        if (data.state === 'On') {
+          chrome.storage.sync.set({state: 'Off'});
           //do something, removing the script or whatever
           chrome.tabs.reload();
-        } else {
-          chrome.storage.sync.set({state: 'on'});
           document.getElementById("status").innerHTML = data.state;
+        } else {
+          chrome.storage.sync.set({state: 'On'});
           //inject your script
           chrome.tabs.reload();
+          document.getElementById("status").innerHTML = data.state;
         }
       });
 }
