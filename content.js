@@ -37,20 +37,20 @@ function swap (node) {
 }
 window.onload = chrome.storage.sync.get('state',function(data){if (data.state !== 'Off'){trumpify();}});
 document.addEventListener('DOMContentLoaded', function() {document.getElementById('toggler').addEventListener('click', toggle());});
-document.getElementById("toggler").addEventListener("click", toggle());
+//document.getElementById("toggler").addEventListener("click", toggle());
 function toggle()
 {
     chrome.storage.sync.get('state', function(data) {
         if (data.state === 'On') {
           chrome.storage.sync.set({state: 'Off'});
-          //do something, removing the script or whatever
           chrome.tabs.reload();
           document.getElementById("status").innerHTML = data.state;
+          chrome.browserAction.setIcon({path:"favicon_io/android-chrome-512x512_bw.png"},()=>{console.log("Off")});
         } else {
           chrome.storage.sync.set({state: 'On'});
-          //inject your script
           chrome.tabs.reload();
           document.getElementById("status").innerHTML = data.state;
+          chrome.browserAction.setIcon({path:"favicon_io/android-chrome-512x512.png"},()=>{console.log("On")});
         }
       });
 }
