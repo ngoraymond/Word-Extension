@@ -22,15 +22,18 @@ function swap (node) {
     node.nodeValue = node.nodeValue
     .replace(/\. |\.\n/g,', believe me. ')
     .replace(/alt right|altright|alt-right|Neo-Nazi|neo|Nazi/g,'good people')
-    .replace(/North Korea|Russia/g,'Good Country')
+    .replace(/Russia/g,'No Collusion')
+    .replace(/Ukraine/g, 'Diet Russia')
+    .replace(/China/g, 'Gyna')
     .replace(/big/g,'bigly')
     .replace(/coffee|coverage/g,'covfefe')
     .replace(/Coffee|coverage/g,'Covfefe')
-    .replace(/Obama/g,'"Weak on Immigration" Obama')
+    .replace(/Obama/g,'"Kenyan" Obama')
     .replace(/undocumented/g,'illegal')
     .replace(/Undocumented/g,'Illegal')
     .replace(/Hillary Clinton|Hillary/g,'Crooked Hillary')
-    .replace(/Big/g,'Bigly'); 
+    .replace(/Big/g,'Bigly')
+    .replace(/Joe Biden|Biden/g,'Sleepy Joe'); 
     /*
     .replace(/[a-zA-Z]+\./g,', believe me.')
     */
